@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 50px">
+      <mat-card style="margin: 50px 0" class="form-detail">
+        <mat-card-title style="text-align: center">Book Detail</mat-card-title>
+        <div class="alert alert-primary" *ngIf="check" style="width: 350px; text-align: center">
+          Update is Success!
+        </div>
+        <!--          Title-->
+        <mat-form-field appearance="outline" style="width: 350px" >
+          <mat-label>Title</mat-label>
+          <input
+            disabled
+            name="title"
+            [(ngModel)]="book.title"
+            matInput
+            placeholder="Placeholder"
+            required
+            minlength="6"
+            #title= "ngModel"
+          >
+          <mat-error *ngIf="title.hasError('required')">The title is required!</mat-error>
+          <mat-error *ngIf="title.hasError('minlength')">The title length min is 6!</mat-error>
+          <mat-icon color="accent" matSuffix>title</mat-icon>
+        </mat-form-field>
+        <br>
+        <!--          Author-->
+        <mat-form-field appearance="outline" style="width: 350px" >
+          <mat-label>Author</mat-label>
+          <input
+            name="author"
+            [(ngModel)]="book.author"
+            matInput
+            placeholder="Placeholder"
+            required
+            #author="ngModel"
+          >
+          <mat-error *ngIf="author.hasError('required')">The title is required!</mat-error>
+          <mat-icon color="accent" matSuffix>person</mat-icon>
+        </mat-form-field>
+        <br>
+        <!--          Description-->
+        <mat-form-field appearance="outline" style="width: 350px" >
+          <mat-label>Description</mat-label>
+          <textarea
+            name="description"
+            [(ngModel)]="book.description"
+            matInput
+            placeholder="Placeholder"
+            required
+          ></textarea>
+          <mat-icon color="accent" matSuffix>description</mat-icon>
+        </mat-form-field>
+        <br>
+        <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary" (click)="onEdit()">Delete
+        </button>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 50px">
+      <mat-card style="margin: 50px 0">
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tittle</th>
+            <th scope="col">Author</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let book of books, let i = index">
+            <td >{{i+1}}</td>
+            <td routerLink="/book-detail/{{book.id}}">{{book.title}}</td>
+            <td >{{book.author}}</td>
+            <td ><mat-icon color="primary" routerLink="/book-edit/{{book.id}}">edit</mat-icon></td>
+            <td ><mat-icon color="accent" routerLink="/book-delete/{{book.id}}">delete</mat-icon></td>
+          </tr>
+          </tbody>
+        </table>
+      </mat-card>
+    </div>
+  </div>
+</div>
